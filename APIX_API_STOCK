@@ -1,0 +1,19 @@
+#coding=utf-8
+import requests
+import json
+import os
+
+url = "http://a.apix.cn/apixmoney/stockdata/stock"
+
+querystring = {"stockid":"603766"}
+
+headers = {
+    'accept': "application/json",
+    'content-type': "application/json",
+    'apix-key': "5f223a0a1d4f4aaf580e507eb9e53ff1"
+    }
+f=open('d:\LXTY.txt','w+')
+response = requests.request("GET", url, headers=headers, params=querystring)
+f.write(response.text.encode('utf-8'))
+f.close()
+print(response.text)
